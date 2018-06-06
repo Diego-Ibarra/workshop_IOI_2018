@@ -1,5 +1,8 @@
-# Workshop for IOI (2018) - Bedford Institute of Oceanography (June 7, 2018)
--------------------------------------
+# Workshop for IOI
+
+Bedford Institute of Oceanography (June 7, 2018)
+
+------------------------------------
 
 Rendered version of this workshop: https://github.com/Diego-Ibarra/workshop_IOI_2018/blob/master/workshop_2018.ipynb
 

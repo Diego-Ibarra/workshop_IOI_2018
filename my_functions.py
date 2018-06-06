@@ -96,7 +96,7 @@ def add_NAFO_areas(m):
             plot_polygon(poly_lons, poly_lats, m, edgecolor='#a6a6a6',linewidth=0.5,alpha=0.5,zorder=20)
     
    # NAFO labels
-    nafo = pd.read_csv('NAFO_subunit_centroids.csv')
+    nafo = pd.read_csv('data/NAFO_subunit_centroids.csv')
 
     zones = pd.unique(nafo['UnitArea'].values)
 
@@ -123,7 +123,7 @@ def plot_label(lon, lat, zone, m):
 
 
 def plot_CriticalHabitats(m):
-    nafo = pd.read_csv('NorthAtlanticRightWhale_CH_coords.csv')
+    nafo = pd.read_csv('data/NorthAtlanticRightWhale_CH_coords.csv')
 
     zones = pd.unique(nafo['Polygon_ID'].values)
 

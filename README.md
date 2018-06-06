@@ -1,12 +1,21 @@
-# workshop_IOI_2018
+# Workshop for IOI (2018) - Bedford Institute of Oceanography (June 7, 2018)
+-------------------------------------
 
-Install python, preferably via [Ananconda](https://www.anaconda.com/download/) or [miniconda](https://conda.io/miniconda.html)
+Rendered version of this workshop: https://github.com/Diego-Ibarra/workshop_IOI_2018/blob/master/workshop_2018.ipynb
 
-Then install the following modules by:
+-------------------------------------
 
-`conda install -c anaconda notebook`
+### Installation instructions
 
-`conda install pandas matplotlib`
+Prior to workshop...
+
+1) Download and install [Anaconda with Python 3.6](https://www.anaconda.com/download/) OR  [Anaconda with Python 3.6](https://conda.io/miniconda.html)
+
+2) Install the required modules by typing in **Anaconda Promt**:
+
+- `conda install -c anaconda notebook`
+
+- `conda install pandas matplotlib`
 
 more work needed here....
 

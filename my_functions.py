@@ -4,7 +4,32 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Polygon
 import shapefile
 
+def plot_polygon(poly_lons, poly_lats, m, edgecolor='#a6a6a6',linewidth=0.5,alpha=0.3,zorder=2):
+    '''
+    Generic fucntion to add a polygon to basemap
+    '''
+    poly_x, poly_y = m(poly_lons, poly_lats)
+    poly_xy = np.transpose(np.array((poly_x[:,0], poly_y[:,0])))
+    
+    # Ad polygon
+    poly = Polygon(poly_xy,
+                   closed=True,
+                   edgecolor=edgecolor,
+                   linewidth=linewidth,
+                   alpha=alpha,
+                   fill=False,
+                   zorder=zorder)
+    
+    plt.gca().add_patch(poly)
+    return
+
+
+
+
 def add_maritimes_region(m):
+    '''
+    Add "Maritimes Region" polygon to basemap
+    '''
     sf = shapefile.Reader("shapefiles/MaritimesRegionPolygon_UpdatedSept2015_wgs84")
     for shape in list(sf.iterShapes()):
         npoints=len(shape.points) # total points
@@ -41,28 +66,11 @@ def add_maritimes_region(m):
 
 
 
-def plot_polygon(poly_lons, poly_lats, m, edgecolor='#a6a6a6',linewidth=0.5,alpha=0.3,zorder=2):
-    poly_x, poly_y = m(poly_lons, poly_lats)
-    poly_xy = np.transpose(np.array((poly_x[:,0], poly_y[:,0])))
-    
-    # Ad polygon
-    poly = Polygon(poly_xy,
-                   closed=True,
-                   edgecolor=edgecolor,
-                   linewidth=linewidth,
-                   alpha=alpha,
-                   fill=False,
-                   zorder=zorder)
-    
-    plt.gca().add_patch(poly)
-    return
-
-
-
-
-
 
 def add_NAFO_areas(m):
+    '''
+    Add "NAFO subareas" polygons to basemap
+    '''
     sf = shapefile.Reader("shapefiles/NAFO_SubUnits_CanAtlantic")
     
     for shape in list(sf.iterShapes()):
@@ -100,7 +108,6 @@ def add_NAFO_areas(m):
 
     zones = pd.unique(nafo['UnitArea'].values)
 
-
     for zone in zones:
         zone_points = nafo[nafo['UnitArea'] == zone]
         lat = zone_points['ddlat'].values[0]
@@ -116,6 +123,9 @@ def add_NAFO_areas(m):
 
 
 def plot_label(lon, lat, zone, m):
+    '''
+    Add generic labels to basemap
+    '''
     x, y = m(lon, lat)
     plt.text(x, y, zone, fontsize=9,color='#a6a6a6',zorder=35)
     return
@@ -123,6 +133,9 @@ def plot_label(lon, lat, zone, m):
 
 
 def plot_CriticalHabitats(m):
+    '''
+    Add "Critical Habitat" polygons to basemap
+    '''
     nafo = pd.read_csv('data/NorthAtlanticRightWhale_CH_coords.csv')
 
     zones = pd.unique(nafo['Polygon_ID'].values)

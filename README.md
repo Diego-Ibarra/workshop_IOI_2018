@@ -16,6 +16,6 @@ Prior to workshop...
 
 - `conda install pandas matplotlib`
 
-more work needed here....
+- `conda install -c conda-forge basemap basemap-data-hires netcdf4`
 
 
